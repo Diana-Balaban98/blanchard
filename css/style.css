@@ -82,6 +82,13 @@ a {
   filter: grayscale(1);
 }
 
+.btn {
+  display: block;
+  border-radius: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+
  /* header
  =============== */
  .header {
@@ -412,13 +419,9 @@ a {
 }
 
 .hero__button {
-   display: block;
    width: 315px;
    padding: 23px 35px;
    background-color: var(--color-violet);
-   border-radius: 100px;
-   text-align: center;
-   cursor: pointer;
    transition: all .1s linear;
 }
 
@@ -817,29 +820,34 @@ a {
 
 /* developments
 ================= */
-/* .developments__card {
+.developments__card {
   flex-wrap: wrap;
-} */
+}
 
 .developments__item {
-  width: 33.3333%;;
-  height: auto;
+  max-width: 500px;
+  max-height: 700px;
+  margin: 0 50px 50px 0;
+}
+
+.developments__item--hidden {
+  display: none;
+}
+
+.developments__item:nth-child(3n+3) {
+  margin-right: 0;
 }
 
 .developments__inner {
   flex-direction: column;
   justify-content: space-between;
-  height: 400px;
+  min-height: 400px;
   padding: 12px 50px 48px 50px;
   border: 1px solid #CACACA;
 }
 
 .developments__item img {
   width: 100%;
-}
-
-.developments__item:not(:last-child) {
-  margin-right: 50px;
 }
 
 .developments__data {
@@ -877,6 +885,25 @@ a {
   display: block;
 }
 
+.developments__button {
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px 35px;
+  border-radius: 100px;
+  background-color:  #999999;
+  color: var(--color-white);
+  transition: all .3s linear;
+}
+
+.developments__button:hover {
+  background-color: #C283F3;
+  /* border: 1px solid var(--color-violet); */
+}
+
+.overflow {
+  display: block;
+}
+
 /* projects
 ============ */
 .projects__descr {
@@ -899,14 +926,32 @@ a {
   color: #333333;
 }
 
+.projects__slide {
+  max-width: 450px !important;
+}
+
+.projects__link {
+  color: #9D5CD0;
+}
+
 .partners__card {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 450px;
   width: 100%;
   height: 150px;
   border: 1px solid #CACACA;
+  cursor: pointer;
+}
+
+.parnters__company {
+  filter: grayscale(1);
+  opacity: 0.3;
+}
+
+.partners__card:hover .parnters__company {
+  filter: none;
+  opacity: 1;
 }
 
 
@@ -974,6 +1019,6 @@ a {
   height: 45px;
 }
 
-.social__icon:first-child {
+.social__item:first-child {
   margin-right: 20px;
 }

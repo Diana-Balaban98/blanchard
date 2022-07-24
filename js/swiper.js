@@ -2,7 +2,7 @@
 const swiper = new Swiper('.swiper', {
   slidesPerView: 3,
   spaceBetween: 50,
-  slidesPerGroup: 3,
+  slidesPerGroup: 2,
   loop: true,
   slidersPerColumnFill: 'row',
   // pagination
@@ -39,11 +39,10 @@ const swiper = new Swiper('.swiper', {
 
 // projects swiper
 const projectsSwiper = new Swiper('.projects__swiper', {
-  slideClass: ('partners__swiper-slide'),
-  slidesPerView: 1,
-  slidesPerGroup: 1,
+  slideClass: ('projects__slide'),
+  slidesPerView: 3,
+  slidesPerGroup: 3,
   loop: true,
-  spaceBetween: 30,
 
   navigation: {
     nextEl: '.swiper-button-next',
