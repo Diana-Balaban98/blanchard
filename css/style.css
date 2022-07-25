@@ -89,6 +89,114 @@ a {
   cursor: pointer;
 }
 
+.lupa--hidden {
+  width: 30px;
+  height: 30px;
+}
+
+/* burger-menu */
+.burger-menu,
+.lupa--hidden {
+  display: none;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 35px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 28px;
+  height: 3.5px;
+  background-color: #fff;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -11px;
+}
+
+.menu__btn > span::after {
+  content: '';
+  top: 10px;
+  width: 24px;
+}
+
+/* menu-container*/
+.menu__box {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 100vh;
+  height: 100vh;
+  padding: 90px 0;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+}
+
+/* menu-elements */
+.menu__item {
+  display: block;
+  padding: 15px 24px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 257px;
+  height: 60px;
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  border: 2px solid #9D5CD0;
+}
+
+.menu__item:hover {
+  background-color: #CFD8DC;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
  /* header
  =============== */
  .header {
@@ -107,8 +215,13 @@ a {
     align-items: center;
  }
 
+ .nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+ }
+
  .nav__link {
-   margin-right: 62px;
    font-weight: 600;
    font-size: 18px;
    line-height: 25px;
@@ -161,8 +274,10 @@ a {
    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.header__link  {
-  margin-right: 96px;
+.header__list  {
+  max-width: 1064px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 /* .header__link::after {
@@ -213,6 +328,7 @@ a {
   align-items: center;
   max-width: 251px;
   width: 100%;
+  margin-left: 50px;
 }
 
 .search::before {
@@ -510,7 +626,6 @@ a {
 /* gallery
 ========= */
 .gallery {
-  height: 595px;
   width: 100%;
   padding-top: 80px;
   background-image: url("../img/gallery/gallery-bg.jpg");
@@ -626,6 +741,15 @@ a {
   cursor: pointer;
 }
 
+.gallery__card:active  .gallery__hover {
+  opacity: 0;
+}
+
+.gallery__card:active  {
+  transform: scale(1.2)
+}
+
+
 
 /* select
 =============== */
@@ -711,6 +835,7 @@ a {
 }
 
 .info-card {
+  width: 50%;
   margin-right: 50px;
 }
 
@@ -739,6 +864,10 @@ a {
 }
 
 /* accordion */
+.accordion  {
+  width: 50%;
+}
+
 .accordion .ui-accordion-header {
 	position: relative;
 }
@@ -773,7 +902,6 @@ a {
 
 .accordion__item {
   position: relative;
-  width: 800px;
   padding: 32px 0;
   border-bottom: 1px solid  #CACACA;
   transition: all .2s linear;
@@ -820,12 +948,9 @@ a {
 
 /* developments
 ================= */
-.developments__card {
-  flex-wrap: wrap;
-}
-
 .developments__item {
   max-width: 500px;
+  width: 100%;
   max-height: 700px;
   margin: 0 50px 50px 0;
 }
@@ -978,7 +1103,7 @@ a {
 
 .connection__input {
   padding-left: 24px;
-  width: 270px;
+  max-width: 270px;
   height: 50px;
   border-radius: 100px;
   border: 1px solid #333333;
@@ -998,7 +1123,7 @@ a {
 }
 
 .connection__input:not(:last-child) {
-  margin-right: 20px;
+  margin: 0 20px 30px 0;
 }
 
 /* footer
@@ -1021,4 +1146,57 @@ a {
 
 .social__item:first-child {
   margin-right: 20px;
+}
+
+/* media */
+@media (max-width: 1024px) {
+.container {
+  max-width: 955px;
+}
+
+  .burger-menu,
+  .lupa--hidden {
+    display: block;
+  }
+
+  .nav,
+  .enter,
+  .header__button {
+    display: none;
+  }
+
+  .hero {
+    height: 670px;
+    background-image: url("../img/hero/1024/hero-bg-1.jpg");
+  }
+
+  @keyframes scale {
+    30% {
+      background-image: url("../img/hero/1024/hero-bg-2.png");
+      background-size: 100%;
+    }
+
+    60% {
+      background-image: url("../img/hero/1024/hero-bg-3.jpg");
+      background-size: 100%;
+  }
+}
+
+.developments__card {
+  flex-wrap: wrap;
+}
+
+.connection {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.connection .connection__adress {
+  margin-bottom: 30px;
+}
+
+.social__img {
+  width: 60px;
+  height: 60px;
+}
 }
