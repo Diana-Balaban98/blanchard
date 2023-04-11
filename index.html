@@ -875,38 +875,6 @@
       </div>
     </section>
 
-    <section id="map" style="width: 100%; height: 700px"></section>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
-    <script type="text/javascript">
-        // Функция ymaps.ready() будет вызвана, когда
-        // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-        ymaps.ready(init);
-        function init(){
-            // Создание карты.
-            var myMap = new ymaps.Map("map", {
-                // Координаты центра карты.
-                // Порядок по умолчанию: «широта, долгота».
-                // Чтобы не определять координаты центра карты вручную,
-                // воспользуйтесь инструментом Определение координат.
-                center: [55.76, 37.64],
-                // Уровень масштабирования. Допустимые значения:
-                // от 0 (весь мир) до 19.
-                zoom: 13
-            });
-
-            var myPlacemark = new ymaps.Placemark([55.76, 37.56], {}, {
-                iconLayout: 'default#image',
-                iconImageHref: './img/icon/dot.svg',
-                iconImageSize: [20, 20],
-                iconImageOffset: [-3, -42]
-            });
-
-                // Размещение геообъекта на карте.
-                myMap.geoObjects.add(myPlacemark);
-        }
-    </script>
-
-
     <footer class="footer">
         <div class="container">
             <div class="footer__inner flex">
